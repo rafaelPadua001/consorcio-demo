@@ -331,9 +331,13 @@ section {
 }
 
 .consultora img {
-  width: 140px;
-  border-radius: 10px;
+  width: 100%;
+  height: auto;
+  max-width: 280px;
+  margin: auto;
+  display: block;
 }
+
 
 .whatsapp {
   display: inline-block;
