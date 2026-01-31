@@ -84,14 +84,18 @@ section {
 .hero-form {
   position: relative;
   background: #1a1a1a;
-  padding: 32px;
+  padding: 24px 20px;
   border-radius: 12px;
-  width: 320px;
-  max-width: 400px;
+  width: 100%;
+  max-width: 360px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   z-index: 1;
-
-
+  isolation: isolate;
 }
+
 
 
 
@@ -168,15 +172,7 @@ section {
   border: none;
   background-color: black;
 }
-.hero-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 100%;
-  max-width: 400px; /* limite pra telas grandes */
-  margin: auto;
-  padding: 24px 16px;
-}
+
 
 .hero-form input,
 .hero-form button {
