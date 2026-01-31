@@ -372,5 +372,9 @@ footer {
     flex-direction: row;
     gap: 16px;
   }
+      .container{
+            flex-direction: row;
+    align-items: stretch;
+      }
   }
   
