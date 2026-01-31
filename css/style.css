@@ -361,7 +361,7 @@ footer {
 }
 
 
-/* media Query 
+/* media Query */
 @media (min-width: 768px) {
   .hero {
     align-items: center;
@@ -388,7 +388,7 @@ footer {
     text-align: left;
 }
   }
-@media (min-width: 1024px) {
+/*@media (min-width: 1024px) {
   .container {
     display: grid;
     grid-template-columns: 1fr 420px;
