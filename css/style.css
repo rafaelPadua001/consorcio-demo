@@ -54,6 +54,7 @@ section {
   font-weight: 800;
   font-style: normal;
   font-size: 16px;
+  text-align: center;
 }
 
 .hero-left h1 span {
@@ -61,7 +62,7 @@ section {
    font-family: "Spectral", serif;
   font-weight: 800;
   font-style: normal;
-  font-size: clamp(24px, 5vw, 40px);
+  font-size: clamp(22px, 6vw, 36px);
 
 
 }
