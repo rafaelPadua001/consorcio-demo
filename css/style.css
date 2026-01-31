@@ -1,74 +1,74 @@
-/* =========================
-   RESET + BASE
-========================= */
+/* =================================================
+   RESET
+================================================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #0f0f0f;
   color: #f5f5f5;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
-section {
-  padding: clamp(24px, 5vw, 80px) 16px;
-}
-
-/* =========================
+/* =================================================
    HERO
-========================= */
+================================================= */
 .hero {
   position: relative;
   min-height: 100svh;
   background-image: url("../assets/images/layout/9c440aac-ac5b-40a6-a1cd-2cbe313fbffe-md.webp");
   background-size: cover;
-  background-position: top center;
+  background-position: center top;
   background-repeat: no-repeat;
 
   display: flex;
   align-items: center;
 }
 
-/* Overlay */
-.hero::before {
+/* overlay */
+.hero::after {
   content: "";
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.65);
 }
 
-/* =========================
-   CONTAINER
-========================= */
+/* =================================================
+   CONTAINER (mobile = coluna)
+================================================= */
 .container {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1200px;
   margin: auto;
+  padding: 32px 20px;
 
   display: flex;
   flex-direction: column;
-  gap: 32px;
-
-  padding: 0 24px;
+  gap: 40px;
   align-items: center;
 }
 
-/* =========================
+/* =================================================
    HERO LEFT (TEXTO)
-========================= */
+================================================= */
 .hero-left {
-  color: #faf9f6;
-  font-family: "Spectral", serif;
+  width: 100%;
+  max-width: 540px;
   text-align: center;
-  max-width: 520px;
+  font-family: "Spectral", serif;
 }
 
 .hero-left h1 {
-  font-size: clamp(28px, 6vw, 42px);
+  font-size: clamp(28px, 7vw, 40px);
   line-height: 1.15;
   margin-bottom: 24px;
 }
@@ -91,28 +91,26 @@ section {
   color: #4CAF50;
 }
 
-/* =========================
+/* =================================================
    HERO FORM
-========================= */
+================================================= */
 .hero-form {
-  position: relative;
-  background: #1a1a1a;
-  border-radius: 12px;
-
   width: 100%;
   max-width: 420px;
-
+  background: #1a1a1a;
+  border-radius: 14px;
   padding: 32px 28px;
 
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 
+  position: relative;
   isolation: isolate;
 }
 
-/* Brilho topo */
-.hero-form::after {
+/* brilho topo */
+.hero-form::before {
   content: "";
   position: absolute;
   top: 0;
@@ -129,25 +127,26 @@ section {
   );
   border-radius: 3px;
   filter: blur(2px);
-  animation: topSweep 3.5s ease-in-out infinite;
+  animation: sweep 3.5s ease-in-out infinite;
   pointer-events: none;
 }
 
-@keyframes topSweep {
-  0% { left: 0%; opacity: 0; }
-  20% { opacity: 1; }
-  50% { left: 30%; }
-  100% { left: 60%; opacity: 0; }
+@keyframes sweep {
+  0%   { left: -40%; opacity: 0; }
+  20%  { opacity: 1; }
+  50%  { left: 30%; }
+  100% { left: 80%; opacity: 0; }
 }
 
 .hero-form h3 {
-  color: #c9a24d;
   text-align: center;
+  color: #c9a24d;
   margin-bottom: 12px;
 }
 
 .hero-form label {
   display: flex;
+  align-items: center;
   gap: 8px;
   font-size: 14px;
   cursor: pointer;
@@ -165,28 +164,29 @@ section {
 .hero-form .radio-group {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .hero-form button {
+  margin-top: 8px;
   padding: 12px;
   background: #4CAF50;
   color: #fff;
+  font-weight: bold;
   border: none;
   border-radius: 6px;
-  font-weight: bold;
   cursor: pointer;
 }
 
 .small-text-form {
-  text-align: center;
   font-size: 12px;
   opacity: 0.8;
+  text-align: center;
 }
 
-/* =========================
+/* =================================================
    TABLET
-========================= */
+================================================= */
 @media (min-width: 768px) {
   .hero-left {
     text-align: left;
@@ -198,24 +198,29 @@ section {
   }
 }
 
-/* =========================
-   DESKTOP (LADO A LADO)
-========================= */
+/* =================================================
+   DESKTOP — LADO A LADO GARANTIDO
+================================================= */
 @media (min-width: 1024px) {
+
   .container {
     display: grid;
-    grid-template-columns: 1fr 420px;
-    gap: 64px;
+    grid-template-columns: minmax(0, 1fr) 420px;
     align-items: center;
+    gap: 64px;
   }
 
   .hero-left {
     max-width: none;
+    text-align: left;
   }
 
   .hero-left h1 {
     font-size: 48px;
     line-height: 1.1;
   }
-    }
-  
+
+  .hero-form {
+    justify-self: end;
+  }
+}
