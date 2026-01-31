@@ -361,10 +361,10 @@ footer {
 }
 
 
-/*media Query */
+/* media Query 
 @media (min-width: 768px) {
   .hero {
-   /* align-items: center;*/
+    align-items: center;
   }
   .hero-form {
     flex-direction: column;
@@ -393,6 +393,7 @@ footer {
     display: grid;
     grid-template-columns: 1fr 420px;
     gap: 64px;
-   /* align-items: center; */
+    align-items: center; 
   }
       }
+*/
