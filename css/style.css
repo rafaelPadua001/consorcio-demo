@@ -358,10 +358,13 @@ footer {
     gap: 16px;
   }
 
-  .hero-form .radio-group {
+  
+      .hero-form .radio-group {
     flex-direction: row;
+    justify-content: space-between;
     gap: 16px;
-  }
+      }
+  
       .container{
             flex-direction: row;
     align-items: stretch;
