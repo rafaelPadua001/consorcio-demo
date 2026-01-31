@@ -21,9 +21,9 @@ section {
   background-repeat: no-repeat;
   background-position: top center;
   min-height: 100svh;
-  padding: 24px 16px;
+  padding: 32px 16px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 
@@ -354,6 +354,9 @@ footer {
 
 /*media Query */
 @media (min-width: 768px) {
+  .hero {
+    align-items: center;
+  }
   .hero-form {
     flex-direction: column;
     padding: 32px 24px;
