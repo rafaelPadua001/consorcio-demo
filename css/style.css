@@ -306,6 +306,8 @@ section {
   isolation: isolate;
   overflow: hidden;
   border-radius: 16px;
+  flex-direction: column;
+  text-align: center;
 }
 
 /* Borda dourada */
@@ -383,5 +385,9 @@ footer {
   .hero-left {
     text-align: left;
   }
+  .consultora-box {
+    flex-direction: row;
+    text-align: left;
+}
   }
   
