@@ -70,6 +70,7 @@ section {
 .hero-left ul {
   margin-top: 20px;
   list-style: none;
+    margin-top: 16px;
 }
 
 .hero-left li {
@@ -370,5 +371,8 @@ footer {
             flex-direction: row;
     align-items: stretch;
       }
+  .hero-left {
+    text-align: left;
+  }
   }
   
