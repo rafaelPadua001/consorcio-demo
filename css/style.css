@@ -31,7 +31,7 @@ section {
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, .55);
+  background: rgba(0, 0, 0, 0.65);
 }
 
 .container {
@@ -46,7 +46,6 @@ section {
   align-items: center;
   padding: 0 24px;
 }
-
 .hero-left {
   flex: 1;
   color: #faf9f6;
