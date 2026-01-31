@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  
 }
 
 body {
@@ -19,9 +19,7 @@ body {
   /* 👈 muda aqui */
   background-repeat: no-repeat;
   padding: 200px 0;
-  font-family: "Spectral", serif;
-  font-weight: 200;
-  font-style: normal;
+
 
 }
 
@@ -45,11 +43,18 @@ body {
 
 .hero-left {
   flex: 1;
-  color: #c9a24d;
+  color: #faf9f6;
+  font-family: "Spectral", serif;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 16px;
 }
 
 .hero-left h1 span {
   color: #c9a24d;
+   font-family: "Spectral", serif;
+  font-weight: 800;
+  font-style: normal;
 }
 
 .hero-left ul {
