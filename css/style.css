@@ -364,7 +364,7 @@ footer {
 /*media Query */
 @media (min-width: 768px) {
   .hero {
-    align-items: center;
+   /* align-items: center;*/
   }
   .hero-form {
     flex-direction: column;
