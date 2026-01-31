@@ -235,7 +235,8 @@ body {
 
 .benefits-content h2 {
   margin-bottom: 30px;
-  color: #c9a24d
+  color: #c9a24d;
+  font-size: clamp(18px, 4vw, 28px);
 }
 
 .cards {
