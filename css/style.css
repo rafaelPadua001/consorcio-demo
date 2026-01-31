@@ -1,80 +1,78 @@
-/* =================================================
-   RESET
-================================================= */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
+  
 }
 
 body {
   background: #0f0f0f;
   color: #f5f5f5;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+
+}
+section {
+  padding: clamp(24px, 5vw, 80px) 16px;
 }
 
-/* =================================================
-   HERO
-================================================= */
 .hero {
   position: relative;
-  min-height: 100svh;
   background-image: url("../assets/images/layout/9c440aac-ac5b-40a6-a1cd-2cbe313fbffe-md.webp");
   background-size: cover;
-  background-position: center top;
   background-repeat: no-repeat;
-
+  background-position: top center;
+  min-height: 100svh;
+  padding: 32px 16px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
-/* overlay */
-.hero::after {
-  content: "";
+
+
+.overlay {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.65);
 }
 
-/* =================================================
-   CONTAINER (mobile = coluna)
-================================================= */
 .container {
   position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
-  padding: 32px 20px;
-
   display: flex;
+  gap: 24px;
+  max-width: 1100px;
+  margin: auto;
+  z-index: 2;
+  overflow: visible;
   flex-direction: column;
-  gap: 40px;
   align-items: center;
+  padding: 0 24px;
 }
 
-/* =================================================
-   HERO LEFT (TEXTO)
-================================================= */
 .hero-left {
-  width: 100%;
-  max-width: 540px;
-  text-align: center;
+  flex: 1;
+  color: #faf9f6;
   font-family: "Spectral", serif;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 15px;
+  text-align: center;
+  padding: 0 4px;
+  max-width: 520px;
 }
-
 .hero-left h1 {
-  font-size: clamp(28px, 7vw, 40px);
+  font-size: clamp(28px, 3.2vw, 42px);
   line-height: 1.15;
   margin-bottom: 24px;
 }
 
 .hero-left h1 span {
   color: #c9a24d;
+   font-family: "Spectral", serif;
+  font-weight: 800;
+  font-style: normal;
+  font-size: clamp(22px, 6vw, 36px);
+
+
 }
 
 .hero-left ul {
@@ -83,65 +81,87 @@ body {
 }
 
 .hero-left li {
+  color: #fff;
   font-size: 16px;
   margin-bottom: 12px;
 }
 
-.hero-left .li-span {
-  color: #4CAF50;
+.hero-left li .li-span {
+  color: green;
+
 }
 
-/* =================================================
-   HERO FORM
-================================================= */
 .hero-form {
-  width: 100%;
-  max-width: 420px;
+  position: relative;
   background: #1a1a1a;
-  border-radius: 14px;
-  padding: 32px 28px;
-
+  border-radius: 12px;
+  width: 90%;
+  margin: auto;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-
-  position: relative;
+  gap: 12px;
+  z-index: 1;
   isolation: isolate;
+    max-width: 420px;
+  padding: 32px 28px;
 }
 
-/* brilho topo */
-.hero-form::before {
+
+
+
+.hero-form:hover::before,
+.hero-form:focus-within::before {
+  filter: blur(10px);
+  opacity: 1;
+}
+
+/* ✨ Brilho percorrendo o topo */
+.hero-form::after {
   content: "";
   position: absolute;
   top: 0;
   left: -40%;
   width: 40%;
   height: 3px;
-  background: linear-gradient(
-    100deg,
-    transparent,
-    rgba(255, 240, 180, 0.9),
-    rgba(255, 215, 100, 1),
-    rgba(255, 240, 180, 0.9),
-    transparent
-  );
+  /* espessura do brilho */
+  background: linear-gradient(100deg,
+      transparent,
+      rgba(255, 240, 180, 0.9),
+      rgba(255, 215, 100, 1),
+      rgba(255, 240, 180, 0.9),
+      transparent);
   border-radius: 3px;
   filter: blur(2px);
-  animation: sweep 3.5s ease-in-out infinite;
+  animation: topSweep 3.5s ease-in-out infinite;
   pointer-events: none;
 }
 
-@keyframes sweep {
-  0%   { left: -40%; opacity: 0; }
-  20%  { opacity: 1; }
-  50%  { left: 30%; }
-  100% { left: 80%; opacity: 0; }
+@keyframes topSweep {
+  0% {
+    left: 0%;
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  50% {
+    left: 30%;
+    opacity: 1;
+  }
+
+  100% {
+    left: 60%;
+    opacity: 0;
+  }
 }
 
+
 .hero-form h3 {
-  text-align: center;
+  margin-bottom: 15px;
   color: #c9a24d;
-  margin-bottom: 12px;
+  text-align: center;
 }
 
 .hero-form label {
@@ -149,78 +169,231 @@ body {
   align-items: center;
   gap: 8px;
   font-size: 14px;
+  color: #fff;
   cursor: pointer;
 }
+
 
 .hero-form input {
   width: 100%;
   padding: 10px;
+  margin-bottom: 10px;
   border-radius: 6px;
   border: none;
-  background: #000;
-  color: #fff;
+  background-color: black;
+}
+
+
+.hero-form input,
+.hero-form button {
+  width: 100%;
 }
 
 .hero-form .radio-group {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
+}
+
+
+.hero-form input[type="radio"] {
+  margin: 0;
 }
 
 .hero-form button {
-  margin-top: 8px;
+  width: 100%;
   padding: 12px;
   background: #4CAF50;
-  color: #fff;
-  font-weight: bold;
   border: none;
+  color: white;
+  font-weight: bold;
   border-radius: 6px;
   cursor: pointer;
 }
 
 .small-text-form {
-  font-size: 12px;
-  opacity: 0.8;
   text-align: center;
 }
 
-/* =================================================
-   TABLET
-================================================= */
-@media (min-width: 768px) {
-  .hero-left {
-    text-align: left;
-  }
+.benefits {
+  padding: 60px 20px;
+  text-align: center;
+}
 
-  .hero-form .radio-group {
+.benefits-container {
+  display: flex;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+  align-items: center;
+}
+
+.benefits-image img {
+  width: 100%;
+  max-width: 380px;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .6);
+}
+
+.benefits-content {
+  flex: 1;
+  text-align: left;
+}
+
+.benefits-content h2 {
+  margin-bottom: 30px;
+  color: #c9a24d;
+  font-size: clamp(18px, 4vw, 28px);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.card {
+  position: relative;
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 1;
+  isolation: isolate;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg,
+      rgba(212, 175, 55, 0.9),
+      rgba(255, 223, 150, 0.9),
+      rgba(212, 175, 55, 0.9));
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  filter: blur(4px);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+
+.card h4 {
+  color: #c9a24d;
+}
+
+.consultora {
+
+  padding: 60px 20px;
+
+}
+
+.consultora-box {
+  position: relative;
+  background: #1a1a1a;
+  display: flex;
+  gap: 20px;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 800px;
+  margin: auto;
+  align-items: center;
+  z-index: 1;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 16px;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* Borda dourada */
+.consultora-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg,
+      rgba(212, 175, 55, 0.9),
+      rgba(255, 223, 150, 0.9),
+      rgba(212, 175, 55, 0.9));
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  filter: blur(4px);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.consultora img {
+  width: 100%;
+  height: auto;
+  max-width: 280px;
+  margin: auto;
+  display: block;
+}
+
+
+.whatsapp {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 16px;
+  background: #4CAF50;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #aaa;
+}
+
+
+/*media Query */
+@media (min-width: 768px) {
+  .hero {
+    align-items: center;
+  }
+  .hero-form {
+    flex-direction: column;
+    padding: 20px 16px;
+    gap: 16px;
+  }
+  .hero-form::after {
+    opacity: 0.6;
+  }
+  
+      .hero-form .radio-group {
     flex-direction: row;
     justify-content: space-between;
-  }
-}
-
-/* =================================================
-   DESKTOP — LADO A LADO GARANTIDO
-================================================= */
-@media (min-width: 1024px) {
-
-  .container {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 420px;
-    align-items: center;
-    gap: 64px;
-  }
+      }
 
   .hero-left {
-    max-width: none;
     text-align: left;
   }
-
-  .hero-left h1 {
-    font-size: 48px;
-    line-height: 1.1;
-  }
-
-  .hero-form {
-    justify-self: end;
-  }
+  .consultora-box {
+    flex-direction: row;
+    text-align: left;
 }
+  }
+@media (min-width: 1024px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 64px;
+    align-items: center;
+  }
+      }
