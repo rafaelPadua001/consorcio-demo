@@ -159,6 +159,27 @@ body {
   border: none;
   background-color: black;
 }
+.hero-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 400px; /* limite pra telas grandes */
+  margin: auto;
+  padding: 24px 16px;
+}
+
+.hero-form input,
+.hero-form button {
+  width: 100%;
+}
+
+.hero-form .radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 
 .hero-form .radio-group {
   display: flex;
@@ -326,3 +347,16 @@ footer {
 
 
 /*media Query */
+@media (min-width: 768px) {
+  .hero-form {
+    flex-direction: column;
+    padding: 32px 24px;
+    gap: 16px;
+  }
+
+  .hero-form .radio-group {
+    flex-direction: row;
+    gap: 16px;
+  }
+  }
+  
