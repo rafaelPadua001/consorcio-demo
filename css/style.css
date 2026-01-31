@@ -18,11 +18,12 @@ section {
   position: relative;
   background-image: url("../assets/images/layout/9c440aac-ac5b-40a6-a1cd-2cbe313fbffe-md.webp");
   background-size: cover;
-  background-position: center 30%;
   background-repeat: no-repeat;
-  padding: 200px 0;
   background-position: top center;
-  background-size: cover
+  min-height: 100svh;
+  padding: 24px 16px;
+  display: flex;
+  align-items: center;
 }
 
 
