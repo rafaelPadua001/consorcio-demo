@@ -24,7 +24,7 @@ section {
   min-height: 100svh;
   padding: 32px 16px;
   display: flex;
-/*  align-items: flex-start; */
+  align-items: flex-start; 
 }
 
 
