@@ -20,7 +20,7 @@ section {
   background-image: url("../assets/images/layout/9c440aac-ac5b-40a6-a1cd-2cbe313fbffe-md.webp");
   background-size: cover;
   background-repeat: no-repeat;
- background-position: top center; 
+/* background-position: top center; */
   min-height: 100svh;
   padding: 32px 16px;
   display: flex;
