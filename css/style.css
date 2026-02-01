@@ -1,9 +1,8 @@
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
+
 }
 
 body {
@@ -11,102 +10,88 @@ body {
   color: #f5f5f5;
 
 }
-section {
-  padding: clamp(24px, 5vw, 80px) 16px;
-}
 
 .hero {
   position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
   background-image: url("../assets/images/layout/9c440aac-ac5b-40a6-a1cd-2cbe313fbffe-md.webp");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top center;
-  min-height: 100svh;
-  padding: 32px 16px;
-  display: flex;
-  align-items: flex-start; 
+  background-position: center 35%;
+  padding: clamp(120px, 10vw, 180px) 0;
 }
-
 
 
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, .55);
 }
 
 .container {
   position: relative;
   display: flex;
-  gap: 24px;
-  max-width: 1100px;
-  margin: auto;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin-left: auto;
+  padding: 0 2px;
   z-index: 2;
-  overflow: visible;
-  flex-direction: column;
- /* align-items: center;*/
-  padding: 0 24px;
 }
 
 .hero-left {
   flex: 1;
+  max-width: 640px;
   color: #faf9f6;
   font-family: "Spectral", serif;
   font-weight: 800;
   font-style: normal;
-  font-size: 15px;
-  padding: 0 4px;
-  max-width: 720px;
+  font-size: 18px;
 }
+
 .hero-left h1 {
-  font-size: clamp(28px, 3.2vw, 42px);
-  line-height: 1.15;
-  margin-bottom: 24px;
+  font-size: 1.8rem;
 }
 
 .hero-left h1 span {
   color: #c9a24d;
-   font-family: "Spectral", serif;
+  font-family: "Spectral", serif;
   font-weight: 800;
   font-style: normal;
-  font-size: clamp(22px, 6vw, 36px);
-
-
+  font-size: 1.6rem;
 }
 
 .hero-left ul {
+  margin-top: 20px;
   list-style: none;
-  margin-top: 24px;
+   font-size: 1.0rem;
 }
 
 .hero-left li {
+  margin-bottom: 10px;
   color: #fff;
-  font-size: 16px;
-  margin-bottom: 12px;
+  
 }
 
 .hero-left li .li-span {
   color: green;
-
+ 
 }
 
 .hero-form {
+  max-width: 100%;
   position: relative;
   background: #1a1a1a;
+  padding: 32px;
   border-radius: 12px;
-  width: 90%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  width: 320px;
   z-index: 1;
-  isolation: isolate;
-    max-width: 420px;
-  padding: 32px 28px;
+
+
 }
-
-
-
 
 .hero-form:hover::before,
 .hero-form:focus-within::before {
@@ -131,7 +116,7 @@ section {
       transparent);
   border-radius: 3px;
   filter: blur(2px);
-  animation: topSweep 3.5s ease-in-out infinite;
+  animation: topSweep 5.5s ease-in-out infinite;
   pointer-events: none;
 }
 
@@ -182,16 +167,9 @@ section {
   background-color: black;
 }
 
-
-.hero-form input,
-.hero-form button {
-  width: 100%;
-}
-
 .hero-form .radio-group {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  gap: 50px;
 }
 
 
@@ -228,11 +206,82 @@ section {
 }
 
 .benefits-image img {
+  display: flex;
+  justify-content: center;
   width: 100%;
   max-width: 380px;
   border-radius: 16px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, .6);
 }
+
+.image-frame {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  /* trava blur */
+  isolation: isolate;
+  /* isola do hero */
+  max-width: 380px;
+}
+
+.image-frame img {
+  display: block;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+}
+
+.image-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg,
+      rgba(212, 175, 55, 0.9),
+      rgba(255, 223, 150, 0.9),
+      rgba(212, 175, 55, 0.9));
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  filter: blur(4px);
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 3;
+}
+
+
+
+/* ✨ Brilho percorrendo o topo */
+.image-frame::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -40%;
+  width: 40%;
+  height: 4px;
+  /* espessura do brilho */
+  background: linear-gradient(100deg,
+      transparent,
+      rgba(255, 240, 180, 0.9),
+      rgba(255, 215, 100, 1),
+      rgba(255, 240, 180, 0.9),
+      transparent);
+  border-radius: 13px;
+  filter: blur(1px);
+  animation: topSweep 10.5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 4;
+}
+
+
 
 .benefits-content {
   flex: 1;
@@ -242,8 +291,9 @@ section {
 .benefits-content h2 {
   margin-bottom: 30px;
   color: #c9a24d;
-  font-size: clamp(18px, 4vw, 28px);
+  text-align: center;
 }
+
 
 .cards {
   display: grid;
@@ -284,6 +334,7 @@ section {
 }
 
 
+
 .card h4 {
   color: #c9a24d;
 }
@@ -308,9 +359,8 @@ section {
   isolation: isolate;
   overflow: hidden;
   border-radius: 16px;
-  flex-direction: column;
-  text-align: center;
 }
+
 
 /* Borda dourada */
 .consultora-box::before {
@@ -336,13 +386,31 @@ section {
 }
 
 .consultora img {
-  width: 100%;
-  height: auto;
-  max-width: 280px;
-  margin: auto;
-  display: block;
+  width: 140px;
+  border-radius: 10px;
 }
 
+/* ✨ Brilho percorrendo o topo */
+.consultora-box::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -40%;
+  width: 40%;
+  height: 4px;
+  /* espessura do brilho */
+  background: linear-gradient(100deg,
+      transparent,
+      rgba(255, 240, 180, 0.9),
+      rgba(255, 215, 100, 1),
+      rgba(255, 240, 180, 0.9),
+      transparent);
+  border-radius: 13px;
+  filter: blur(1px);
+  animation: topSweep 5.5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 4;
+}
 
 .whatsapp {
   display: inline-block;
@@ -361,39 +429,44 @@ footer {
 }
 
 
-/* media Query */
-@media (min-width: 768px) {
-  .hero {
-    align-items: center;
+/*media Query */
+/* ===== RESPONSIVIDADE ===== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .container {
+    gap: 24px;
   }
-  .hero-form {
-    flex-direction: column;
-    padding: 20px 16px;
-    gap: 16px;
-  }
-  .hero-form::after {
-    opacity: 0.6;
-  }
-  
-      .hero-form .radio-group {
-    flex-direction: row;
-    justify-content: space-between;
-      }
 
   .hero-left {
-    text-align: left;
+    max-width: 100%;
   }
-  .consultora-box {
-    flex-direction: row;
-    text-align: left;
 }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero {
+    padding: 120px 0;
   }
-/*@media (min-width: 1024px) {
+
   .container {
-    display: grid;
-    grid-template-columns: 1fr 420px;
-    gap: 64px;
-    align-items: center; 
+    flex-direction: column;
+    align-items: stretch;
   }
-      }
-*/
+
+  .hero-left {
+    text-align: center;
+  }
+
+  .hero-left ul {
+    display: inline-block;
+    text-align: left;
+    font-size: 1.0rem;
+  }
+
+  .hero-form {
+    width: 100%;
+    max-width: 420px;
+    margin: 40px auto 0;
+  }
+}
