@@ -1,10 +1,80 @@
 document.body.classList.add("has-animations");
 
 const heroButton = document.querySelector(".hero-form button");
+const whatsappNumber = "5561991865680";
 
 if (heroButton) {
-  heroButton.addEventListener("click", () => {
-    alert("Simula??o enviada! Em breve entraremos em contato.");
+  heroButton.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    const heroForm = document.querySelector(".hero-form");
+    const nameInput = heroForm?.querySelector("input[type=\"text\"]");
+    const phoneInput = heroForm?.querySelector("input[type=\"tel\"]");
+    const emailInput = heroForm?.querySelector("input[type=\"email\"]");
+    const selectedRadio = heroForm?.querySelector("input[name=\"tipo\"]:checked");
+
+    const name = nameInput?.value?.trim() || "Não informado";
+    const phone = phoneInput?.value?.trim() || "Não informado";
+    const email = emailInput?.value?.trim() || "Não informado";
+    const tipo =
+      selectedRadio?.closest("label")?.textContent?.trim() || "Não informado";
+
+    const message = [
+      "Olá! Gostaria de fazer uma simulação de consórcio.",
+      "",
+      `📌 Nome: ${name}`,
+      `📞 Telefone: ${phone}`,
+      `📧 Email: ${email}`,
+      `🏠 Tipo de consórcio: ${tipo}`,
+    ].join("\n");
+
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  });
+}
+
+const phoneInput = document.querySelector(".hero-form input[type=\"tel\"]");
+
+if (phoneInput) {
+  phoneInput.setAttribute("inputmode", "numeric");
+  phoneInput.setAttribute("autocomplete", "tel");
+  phoneInput.maxLength = 19;
+
+  const formatPhone = (value) => {
+    let digits = value.replace(/\D/g, "");
+    if (digits.startsWith("55")) {
+      digits = digits.slice(2);
+    }
+    if (!digits.length) {
+      return "";
+    }
+
+    let formatted = "+55 ";
+    const area = digits.slice(0, 2);
+    if (area.length) {
+      formatted += `(${area}`;
+    }
+    if (area.length === 2) {
+      formatted += ") ";
+    }
+
+    const isMobile = digits.length > 10;
+    const firstPart = isMobile ? digits.slice(2, 7) : digits.slice(2, 6);
+    if (firstPart.length) {
+      formatted += firstPart;
+    }
+
+    const secondPart = isMobile ? digits.slice(7, 11) : digits.slice(6, 10);
+    if (secondPart.length) {
+      formatted += `-${secondPart}`;
+    }
+
+    return formatted;
+  };
+
+  phoneInput.addEventListener("input", (event) => {
+    const { value } = event.target;
+    event.target.value = formatPhone(value);
   });
 }
 
