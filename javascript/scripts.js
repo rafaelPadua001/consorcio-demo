@@ -13,21 +13,20 @@ if (heroButton) {
     const emailInput = heroForm?.querySelector("input[type=\"email\"]");
     const selectedRadio = heroForm?.querySelector("input[name=\"tipo\"]:checked");
 
-    const name = nameInput?.value?.trim() || "N?o informado";
-    const phone = phoneInput?.value?.trim() || "N?o informado";
-    const email = emailInput?.value?.trim() || "N?o informado";
+    const name = nameInput?.value?.trim() || "Não informado";
+    const phone = phoneInput?.value?.trim() || "Não informado";
+    const email = emailInput?.value?.trim() || "Não informado";
     const tipo =
-      selectedRadio?.closest("label")?.textContent?.trim() || "N?o informado";
+      selectedRadio?.closest("label")?.textContent?.trim() || "Não informado";
 
     const message = [
-      "Ol?! Gostaria de fazer uma simula??o de cons?rcio.",
+      "Olá! Gostaria de fazer uma simulação de consórcio.",
       "",
-      `?? Nome: ${name}`,
-      `?? Telefone: ${phone}`,
-      `?? Email: ${email}`,
-      `?? Tipo de cons?rcio: ${tipo}`,
-    ].join("
-");
+      `📌 Nome: ${name}`,
+      `📞 Telefone: ${phone}`,
+      `📧 Email: ${email}`,
+      `🏠 Tipo de consórcio: ${tipo}`,
+    ].join("\n");
 
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
